@@ -15,12 +15,12 @@ const SmurfForm = (props) => {
   const [smurf, setSmurf] = useState(smurfValues);
 
   const handleChange = (e) => {
-    setSmurf({ ...smurf, [e.target.value]: e.target.value });
+    setSmurf({ ...smurf, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addSmurf(smurf);
+    props.addSmurf(smurf);
     setSmurf(smurfValues);
 
     // console.log(data)
@@ -34,20 +34,23 @@ const SmurfForm = (props) => {
           name="name"
           value={smurf.name}
           onChange={handleChange}
+          autoComplete="off"
         ></input>
         <label>age</label>
         <input
-          type="text"
+          type="number"
           name="age"
           value={smurf.age}
           onChange={handleChange}
+          autoComplete="off"
         ></input>
         <label>height</label>
         <input
-          type="text"
+          type="number"
           name="height"
           value={smurf.height}
           onChange={handleChange}
+          autoComplete="off"
         ></input>
         <button type="submit">submit</button>
       </form>
