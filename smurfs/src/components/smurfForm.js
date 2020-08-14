@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useForm } from "react-hook-form";
 
 import { addSmurf } from "../actions/actions";
 
 import { connect } from "react-redux";
+import useInput from "./useInput";
 
-const smurfForm = (props) => {
+const SmurfForm = (props) => {
   const { signup } = useForm();
   const [name, setName, handleName] = useInput("");
   const [age, setAge, handleAge] = useInput("");
@@ -31,26 +32,29 @@ const smurfForm = (props) => {
           type="text"
           name="name"
           value={name}
-          onChange={(e) => handleName(e.target.value)}
+          onChange={(e) => handleAge(e.target.value)}
           ref={signup}
         ></input>
         <label>age</label>
         <input
           type="text"
-          name="name"
-          value={name}
-          onChange={(e) => handleName(e.target.value)}
+          name="age"
+          value={age}
+          onChange={(e) => handleHeight(e.target.value)}
           ref={signup}
         ></input>
         <label>height</label>
         <input
           type="text"
-          name="name"
-          value={name}
+          name="height"
+          value={height}
           onChange={(e) => handleName(e.target.value)}
           ref={signup}
         ></input>
+        <button type="submit">submit</button>
       </form>
     </div>
   );
 };
+
+export default connect(() => {}, { addSmurf })(SmurfForm);

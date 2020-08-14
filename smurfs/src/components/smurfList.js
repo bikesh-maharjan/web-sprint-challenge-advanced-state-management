@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addSmurf } from "../actions/actions";
 import Smurf from "./Smurf";
 
-const smurfList = (props) => {
+const SmurfList = (props) => {
   return (
     <div>
       {props.smurfs.map((smurf) => {
@@ -19,4 +19,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addSmurf })(smurfList);
+export default connect(mapStateToProps, { addSmurf })(SmurfList);
