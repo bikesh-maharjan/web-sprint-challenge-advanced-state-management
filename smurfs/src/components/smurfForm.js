@@ -56,5 +56,10 @@ const SmurfForm = (props) => {
     </div>
   );
 };
+// const mapStateToProps = (state) => {
+//   return {
+//     smurfs: state.smurfs,
+//   };
+// };
 
 export default connect(() => {}, { addSmurf })(SmurfForm);

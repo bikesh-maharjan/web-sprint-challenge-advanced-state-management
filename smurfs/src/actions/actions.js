@@ -6,10 +6,10 @@ export const addSmurf = (data) => (dispatch) => {
   dispatch({ type: ADD_SMURF });
 
   axios
-    .post("http://localhost:3333/smurfs", data)
+    .post("http://localhost:3333/smurfs")
     .then((res) => {
-      console.log(res);
-      dispatch({ type: ADD_SMURF, payload: res });
+      console.log(res.data);
+      dispatch({ type: ADD_SMURF, payload: res.data });
     })
     .catch((err) => console.log(err));
 };
