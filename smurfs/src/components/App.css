@@ -10,6 +10,21 @@ form {
   justify-content: center;
   text-transform: uppercase;
 }
+.name {
+  color: goldenrod;
+}
+.age {
+  color: honeydew;
+}
+.height {
+  color: firebrick;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 button {
   color: blue;
   text-transform: uppercase;

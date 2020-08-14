@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { addSmurf } from "../actions/actions";
+import { postSmurf, deleteSmurf } from "../actions/actions";
 
 import { connect } from "react-redux";
 
@@ -20,8 +20,8 @@ const SmurfForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addSmurf(smurf);
-    setSmurf(smurfValues);
+    props.postSmurf(smurf);
+    // setSmurf(smurfValues);
 
     // console.log(data)
   };
@@ -53,6 +53,7 @@ const SmurfForm = (props) => {
           autoComplete="off"
         ></input>
         <button type="submit">submit</button>
+        <button onClick={() => deleteSmurf(smurf.id)}>Delete</button>
       </form>
     </div>
   );
@@ -63,4 +64,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addSmurf })(SmurfForm);
+export default connect(mapStateToProps, { postSmurf, deleteSmurf })(SmurfForm);

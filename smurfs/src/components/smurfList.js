@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getSmurf } from "../actions/actions";
+import "./App.css";
 
 const SmurfList = (props) => {
   useEffect(() => {
     props.getSmurf();
   }, []);
   return (
-    <div>
+    <div className="details">
       {props.smurfs.length > 0
         ? props.smurfs.map((smurf) => {
             return (
-              <h2 key={smurf.id}>
-                Name:
-                {smurf.name}
-              </h2>
+              <div key={smurf.id}>
+                <h2 className="name">{smurf.name}</h2>
+                <h2 className="age"> {smurf.age}</h2>
+
+                <h2 className="height"> {smurf.height}</h2>
+              </div>
             );
           })
         : null}
