@@ -19,7 +19,7 @@ const SmurfForm = (props) => {
     const data = {
       name: name,
       age: Number(age),
-      height: height,
+      height: Number(height),
     };
     // console.log(data)
     props.addSmurf(data);
@@ -32,7 +32,7 @@ const SmurfForm = (props) => {
           type="text"
           name="name"
           value={name}
-          onChange={(e) => handleAge(e.target.value)}
+          onChange={(e) => handleName(e.target.value)}
           ref={signup}
         ></input>
         <label>age</label>
@@ -40,7 +40,7 @@ const SmurfForm = (props) => {
           type="text"
           name="age"
           value={age}
-          onChange={(e) => handleHeight(e.target.value)}
+          onChange={(e) => handleAge(e.target.value)}
           ref={signup}
         ></input>
         <label>height</label>
@@ -48,7 +48,7 @@ const SmurfForm = (props) => {
           type="text"
           name="height"
           value={height}
-          onChange={(e) => handleName(e.target.value)}
+          onChange={(e) => handleHeight(e.target.value)}
           ref={signup}
         ></input>
         <button type="submit">submit</button>
