@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+form {
+  color: red;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: uppercase;
+}
+button {
+  color: blue;
+  text-transform: uppercase;
+}

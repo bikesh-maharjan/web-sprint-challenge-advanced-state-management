@@ -1,28 +1,29 @@
-import React from "react";
-
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 
 import { addSmurf } from "../actions/actions";
 
 import { connect } from "react-redux";
-import useInput from "./useInput";
+
+import "./App.css";
 
 const SmurfForm = (props) => {
-  const { signup } = useForm();
-  const [name, setName, handleName] = useInput("");
-  const [age, setAge, handleAge] = useInput("");
-  const [height, setHeight, handleHeight] = useInput("");
+  const smurfValues = {
+    name: "",
+    age: "",
+    height: "",
+  };
+  const [smurf, setSmurf] = useState(smurfValues);
+
+  const handleChange = (e) => {
+    setSmurf({ ...smurf, [e.target.value]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    addSmurf(smurf);
+    setSmurf(smurfValues);
 
-    const data = {
-      name: name,
-      age: Number(age),
-      height: Number(height),
-    };
     // console.log(data)
-    props.addSmurf(data);
   };
   return (
     <div>
@@ -31,35 +32,32 @@ const SmurfForm = (props) => {
         <input
           type="text"
           name="name"
-          value={name}
-          onChange={(e) => handleName(e.target.value)}
-          ref={signup}
+          value={smurf.name}
+          onChange={handleChange}
         ></input>
         <label>age</label>
         <input
           type="text"
           name="age"
-          value={age}
-          onChange={(e) => handleAge(e.target.value)}
-          ref={signup}
+          value={smurf.age}
+          onChange={handleChange}
         ></input>
         <label>height</label>
         <input
           type="text"
           name="height"
-          value={height}
-          onChange={(e) => handleHeight(e.target.value)}
-          ref={signup}
+          value={smurf.height}
+          onChange={handleChange}
         ></input>
         <button type="submit">submit</button>
       </form>
     </div>
   );
 };
-// const mapStateToProps = (state) => {
-//   return {
-//     smurfs: state.smurfs,
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    smurfs: state.smurfs,
+  };
+};
 
-export default connect(() => {}, { addSmurf })(SmurfForm);
+export default connect(mapStateToProps, { addSmurf })(SmurfForm);

@@ -1,11 +1,11 @@
-import React, { createContext, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import smurfReducer from './reducers/smurfReducers'
+import smurfReducer from "./reducers/smurfReducers";
 
 import { Provider } from "react-redux";
 

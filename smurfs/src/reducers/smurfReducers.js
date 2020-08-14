@@ -1,14 +1,4 @@
-import React from "react";
-
-import { ADD_SMURF } from "../actions/actions";
-import axios from "axios";
-
-axios
-  .get("http://localhost:3333/smurfs")
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => console.log(err));
+import { ADD_SMURF, GET_SMURF } from "../actions/actions";
 
 const initialState = {
   smurfs: [],
@@ -18,6 +8,12 @@ export const smurfReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_SMURF:
       return {
+        ...state,
+        smurfs: action.payload.data,
+      };
+    case GET_SMURF:
+      return {
+        ...state,
         smurfs: action.payload.data,
       };
     default:
